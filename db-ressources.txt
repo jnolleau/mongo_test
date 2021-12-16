@@ -1,3 +1,6 @@
+# To connect to mongo w user/passwor
+mongo -u root -p password
+
 # To importe a ressource from file
 mongoimport --db new_york --collection restaurants \
           --authenticationDatabase admin --username root --password password \

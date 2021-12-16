@@ -1,6 +1,24 @@
 version: "3.8"
 
 services:
+  node:
+    # image: node:current-alpine
+    build:
+      context: "./api"
+    volumes:
+      - ./api/srcs:/usr/src/app
+    depends_on:
+      - mongodb
+    networks:
+      - mongodb_network
+    ports:
+      - 8080:3000
+    environment:
+      - URL_MONGO=mongodb://admin:admin@mongo
+    command: sh -c "npm install && ./node_modules/.bin/nodemon run start"
+    # command: sh -c "npm install && npm run start"
+    # command: sh -c "tail -f"
+
   mongodb:
     image: mongo
     container_name: mongodb
