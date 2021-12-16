@@ -9,6 +9,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongodb-data:/data/db
+      - .:/home
     networks:
       - mongodb_network
     ports:
@@ -31,7 +32,7 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=admin
       - ME_CONFIG_BASICAUTH_PASSWORD=admin
     # volumes:
-    #   - mongodb-data
+    #   - .:/home
     depends_on:
       - mongodb
     networks:
