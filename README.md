@@ -3,7 +3,7 @@ First implementation of mongoDB for education
 The project includes 3 containers:  
 - `mongodb`: the mongoDB process to store databases
 - `mongo-express`: an UI to monitor databases
-- `node`: small Node.js (Express) api to CRUD a User db
+- `node`: small Node.js (Express) api to CRUD a `User` collection into `apinode` db
 
 ## To run the application:
 NB: the installation process may take some times
@@ -17,7 +17,7 @@ $ ./seed_mongo.sh
 ```
 
 ## To CRUD Users with the api:
-The `id` can be found in documents (`_id`) 
+The `id` can be found in documents of mongo db apinode > users (ie. `_id`). 
 
 ### CREATE  
 >PUT http://localhost:8080/v1/users/add  
