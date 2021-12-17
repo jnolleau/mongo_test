@@ -1,7 +1,13 @@
-# To connect to mongo w user/passwor
+# To connect to mongo w user/password
 mongo -u root -p password
 
-# To importe a ressource from file
+# To connect to mongo w user/password and better UI
+mongosh -u root -p password
+
+# To dl ressource of new york restaurants 
+https://s3-eu-west-1.amazonaws.com/course.oc-static.com/courses/4462426/restaurants.json_.zip
+
+# To import a ressource from file
 mongoimport --db new_york --collection restaurants \
           --authenticationDatabase admin --username root --password password \
           --drop --file /home/restaurants.json

@@ -6,10 +6,10 @@ var logger = require('morgan');
 const cors         = require('cors');
 
 var indexRouter = require('./routes/v1/index');
-// var usersRouter = require('./routes/users');
-// const mongodb     = require('./db/mongo');
+var usersRouter = require('./routes/users');
+const mongodb     = require('./db/mongo');
 
-// mongodb.initClientDbConnection();
+mongodb.initClientDbConnection();
 
 var app = express();
 

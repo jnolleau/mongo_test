@@ -71,9 +71,9 @@ exports.delete = async (req, res, next) => {
     const { id } = req.body;
 
     try {
-        await User.deleteOne({ _id: id });
+        let res = await User.deleteOne({ _id: id });
 
-        return res.status(204).json('delete_ok');
+        return res.status(200).json(res); // or 204 ??
     } catch (error) {
         return res.status(501).json(error);
     }

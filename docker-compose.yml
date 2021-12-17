@@ -2,9 +2,7 @@ version: "3.8"
 
 services:
   node:
-    # image: node:current-alpine
-    build:
-      context: "./api"
+    image: node:current-alpine
     volumes:
       - ./api/srcs:/usr/src/app
     depends_on:
@@ -14,10 +12,8 @@ services:
     ports:
       - 8080:3000
     environment:
-      - URL_MONGO=mongodb://admin:admin@mongo
+      - URL_MONGO=mongodb://root:password@mongodb
     command: sh -c "npm install && ./node_modules/.bin/nodemon run start"
-    # command: sh -c "npm install && npm run start"
-    # command: sh -c "tail -f"
 
   mongodb:
     image: mongo
@@ -27,7 +23,6 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongodb-data:/data/db
-      - .:/home
     networks:
       - mongodb_network
     ports:
@@ -49,8 +44,6 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
       - ME_CONFIG_BASICAUTH_USERNAME=admin
       - ME_CONFIG_BASICAUTH_PASSWORD=admin
-    # volumes:
-    #   - .:/home
     depends_on:
       - mongodb
     networks:
